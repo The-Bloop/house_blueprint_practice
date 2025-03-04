@@ -50,7 +50,7 @@ gameOn = True
 
 while gameOn:
     for event in pygame.event.get():
-        print(event)
+        #print(event)
         #event.type is to define the type of Key action. KEYDOWN means event is triggered if a key is pushed down.
         #event.key is the exact key that is being pressed. 
         if (event.type == KEYDOWN):
