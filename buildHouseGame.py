@@ -9,13 +9,14 @@ def transformLines(pose, count):
     global screen
     global mousePose
     global difX, difY
+    global xMin, yMin
 
     j = 0
     difX = pose[0] - mousePose[0]
     difY = pose[1] - mousePose[1]
 
     while(j < count and j < len(items)):
-        pygame.draw.line(screen, (255,255,255), (items[j][1][0] + difX, items[j][1][1] + difY), (items[j][2][0] + difX, items[j][2][1] + difY))
+        pygame.draw.line(screen, (255,255,255), (items[j][1][0] + difX - xMin, items[j][1][1] + difY - yMin), (items[j][2][0] + difX - xMin, items[j][2][1] + difY - yMin))
         j += 1
     
     
@@ -46,7 +47,7 @@ while gameOn:
                 if(i < len(items)):
                     if(items[i][0] == 'l'):
                         #Draws line if the item is of 'line' type.
-                        pygame.draw.line(screen, (255,255,255), (items[i][1][0] + difX, items[i][1][1] + difY), (items[i][2][0] + difX, items[i][2][1] + difY))
+                        pygame.draw.line(screen, (255,255,255), (items[i][1][0] + difX - xMin, items[i][1][1] + difY - yMin), (items[i][2][0] + difX - xMin, items[i][2][1] + difY - yMin))
                     else:
                         print(items[i])
                     i += 1
