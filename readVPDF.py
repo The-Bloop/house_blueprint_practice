@@ -4,6 +4,7 @@ doc = pymupdf.open("basic_house.pdf")
 
 #image w x h = 683 x 384
 
+#This will append all the items into an array
 def getItems():
     global doc
     items = []
@@ -16,16 +17,22 @@ def getItems():
     
     return items
 
-def getLines():
+#This will append all the lines into an array:
+#   skipFrame = True : Doesn't include the outline of the image.
+def getLines(skipFrame):
     global doc
     items = []
     page = doc[0]
     paths = page.get_drawings()
+    
+    i = 0
 
     for path in paths:
         for item in path["items"]:
             if(item[0] == 'l'):
-                items.append(item)
+                if(skipFrame == False or i>3):
+                    items.append(item)
+                i += 1
     
     return items
 

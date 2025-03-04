@@ -5,7 +5,7 @@ from pygame.locals import *
 import readVPDF as rd
 
 rd.openPDF("basic_house.pdf")
-items = rd.getLines()
+items = rd.getLines(True)
 
 #Initializing Pygame
 pygame.init()
@@ -13,7 +13,7 @@ screen = pygame.display.set_mode((1000,1000))
 screen.fill((0,0,0))
 gameOn = True
 
-i = 4
+i = 0
 
 while gameOn:
     for event in pygame.event.get():
